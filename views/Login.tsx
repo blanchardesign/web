@@ -28,11 +28,11 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
     const isDark = theme === 'dark';
 
     return (
-        <div className="fixed inset-0 flex justify-center items-center z-40 p-4">
+        <div className="fixed inset-0 z-40 grid place-items-center p-4">
             <div 
                 className={`
-                    w-64 h-64 sm:w-72 sm:h-72
-                    flex flex-col justify-center items-center p-6 sm:p-8 relative
+                    w-[240px] h-[240px]
+                    flex flex-col justify-center items-center p-6 relative
                     border backdrop-blur-md shadow-2xl transition-all duration-500
                     ${isDark 
                         ? 'bg-white/5 border-white/10 text-white shadow-black/20' 
@@ -40,14 +40,14 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
                     }
                 `}
             >
-                <div className="flex flex-col gap-4 w-full">
-                    <h1 className="text-[13px] font-bold tracking-[0.2em] uppercase whitespace-nowrap text-left">
+                <div className="flex flex-col gap-6 w-full">
+                    <h1 className="text-[10px] font-bold tracking-[0.25em] uppercase whitespace-nowrap text-left opacity-90">
                         Blanchardesign
                     </h1>
 
                     <div className={`
-                        flex items-center justify-between w-full border-b-[0.5px] pb-1
-                        ${isDark ? 'border-white' : 'border-black'}
+                        flex items-center justify-between w-full border-b pb-1.5
+                        ${isDark ? 'border-white/70' : 'border-black/70'}
                     `}>
                         <input 
                             type="password" 
@@ -56,28 +56,28 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
                             onKeyDown={handleKeyDown}
                             placeholder="PASSWORD"
                             className={`
-                                bg-transparent border-none outline-none w-full text-[11px] tracking-[0.1em] uppercase
-                                placeholder:text-[11px] placeholder:tracking-[0.1em] placeholder:opacity-50
+                                bg-transparent border-none outline-none w-full text-[10px] tracking-[0.15em] uppercase
+                                placeholder:text-[10px] placeholder:tracking-[0.15em] placeholder:opacity-50
                                 ${isDark ? 'text-white placeholder-white' : 'text-black placeholder-black'}
                             `}
                         />
                         <button 
                             onClick={checkPassword}
                             className={`
-                                bg-transparent border-none cursor-pointer transition-transform hover:translate-x-0.5 flex-shrink-0
+                                bg-transparent border-none cursor-pointer transition-transform hover:translate-x-1 flex-shrink-0
                                 ${isDark ? 'text-white' : 'text-black'}
                             `}
                         >
-                            <ArrowRight size={14} strokeWidth={1.5} />
+                            <ArrowRight size={12} strokeWidth={1.5} />
                         </button>
                     </div>
                 </div>
 
                 <p className={`
-                    text-[9px] font-mono text-red-500 transition-opacity duration-300 absolute bottom-6 w-full text-center
+                    text-[8px] font-mono text-red-500 tracking-widest transition-opacity duration-300 absolute bottom-6 w-full text-center
                     ${error ? 'opacity-100' : 'opacity-0'}
                 `}>
-                    Access Denied.
+                    ACCESS DENIED
                 </p>
             </div>
         </div>

@@ -8,18 +8,18 @@ interface PortfolioProps {
 }
 
 const projects: Project[] = [
-    { id: 1, title: 'Project 01', category: 'Architecture', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2600&auto=format&fit=crop', size: 'normal' },
-    { id: 2, title: 'Project 02', category: 'Motion', image: 'https://media.giphy.com/media/3o7WITY7sB1qF5T3j2/giphy.gif', size: 'wide' },
-    { id: 3, title: 'Project 03', category: 'Verticality', image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=2600&auto=format&fit=crop', size: 'tall' },
-    { id: 4, title: 'Project 04', category: 'Detail', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2600&auto=format&fit=crop', size: 'normal' },
-    { id: 5, title: 'Project 05', category: 'Featured', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2600&auto=format&fit=crop', size: 'big' },
-    { id: 6, title: 'Project 06', category: 'Simulation', image: 'https://media.giphy.com/media/l41YcGT5ShJa0nCM0/giphy.gif', size: 'normal' },
-    { id: 7, title: 'Project 07', category: 'Landscape', image: 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=2600&auto=format&fit=crop', size: 'wide' },
-    { id: 8, title: 'Project 08', category: 'Structure', image: 'https://images.unsplash.com/photo-1488972685288-c3cc15799269?q=80&w=2600&auto=format&fit=crop', size: 'tall' },
-    { id: 9, title: 'Project 09', category: 'Abstract', image: 'https://images.unsplash.com/photo-1518005052357-e9871951f3a2?q=80&w=2600&auto=format&fit=crop', size: 'normal' },
-    { id: 10, title: 'Project 10', category: 'Interior', image: 'https://images.unsplash.com/photo-1506459225024-1428097a7e18?q=80&w=2600&auto=format&fit=crop', size: 'normal' },
-    { id: 11, title: 'Project 11', category: 'Process', image: 'https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif', size: 'wide' },
-    { id: 12, title: 'Project 12', category: 'Form', image: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?q=80&w=2600&auto=format&fit=crop', size: 'normal' },
+    { id: 1, title: 'Project 01', category: 'Architecture', image: '/images/project-01.jpg', size: 'normal' },
+    { id: 2, title: 'Project 02', category: 'Motion', image: '/images/project-02.jpg', size: 'wide' },
+    { id: 3, title: 'Project 03', category: 'Verticality', image: '/images/project-03.jpg', size: 'tall' },
+    { id: 4, title: 'Project 04', category: 'Detail', image: '/images/project-04.jpg', size: 'normal' },
+    { id: 5, title: 'Project 05', category: 'Featured', image: '/images/project-05.jpg', size: 'big' },
+    { id: 6, title: 'Project 06', category: 'Simulation', image: '/images/project-06.jpg', size: 'normal' },
+    { id: 7, title: 'Project 07', category: 'Landscape', image: '/images/project-07.jpg', size: 'wide' },
+    { id: 8, title: 'Project 08', category: 'Structure', image: '/images/project-08.jpg', size: 'tall' },
+    { id: 9, title: 'Project 09', category: 'Abstract', image: '/images/project-09.jpg', size: 'normal' },
+    { id: 10, title: 'Project 10', category: 'Interior', image: '/images/project-10.jpg', size: 'normal' },
+    { id: 11, title: 'Project 11', category: 'Process', image: '/images/project-11.jpg', size: 'wide' },
+    { id: 12, title: 'Project 12', category: 'Form', image: '/images/project-12.jpg', size: 'normal' },
 ];
 
 const Portfolio: React.FC<PortfolioProps> = ({ theme, toggleTheme }) => {
@@ -56,11 +56,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ theme, toggleTheme }) => {
                                 ${getGridClass(project.size)}
                             `}
                         >
-                            <div className="w-full h-full relative">
+                            <div className="w-full h-full relative bg-black/5 dark:bg-white/5">
                                 <img 
                                     src={project.image} 
                                     alt={project.title}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).style.display = 'none';
+                                    }}
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
                                     <h2 className="text-white text-xl font-light tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
