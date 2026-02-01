@@ -28,11 +28,11 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
     const isDark = theme === 'dark';
 
     return (
-        <div className="flex w-full h-screen justify-center items-center p-4">
+        <div className="fixed inset-0 flex justify-center items-center z-40 p-4">
             <div 
                 className={`
-                    w-52 sm:w-56 aspect-square
-                    flex flex-col justify-center items-start p-5
+                    w-64 h-64 sm:w-72 sm:h-72
+                    flex flex-col justify-center items-center p-6 sm:p-8 relative
                     border backdrop-blur-md shadow-2xl transition-all duration-500
                     ${isDark 
                         ? 'bg-white/5 border-white/10 text-white shadow-black/20' 
@@ -40,14 +40,13 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
                     }
                 `}
             >
-                {/* Wrapper to align input width with title text width */}
-                <div className="flex flex-col gap-3 w-fit">
-                    <h1 className="text-[13px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
+                <div className="flex flex-col gap-4 w-full">
+                    <h1 className="text-[13px] font-bold tracking-[0.2em] uppercase whitespace-nowrap text-left">
                         Blanchardesign
                     </h1>
 
                     <div className={`
-                        flex items-center justify-between w-full border-b-[0.5px] pb-1 pr-[0.2em]
+                        flex items-center justify-between w-full border-b-[0.5px] pb-1
                         ${isDark ? 'border-white' : 'border-black'}
                     `}>
                         <input 
@@ -75,7 +74,7 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
                 </div>
 
                 <p className={`
-                    text-[9px] font-mono text-red-500 transition-opacity duration-300 absolute bottom-5 left-0 w-full text-center
+                    text-[9px] font-mono text-red-500 transition-opacity duration-300 absolute bottom-6 w-full text-center
                     ${error ? 'opacity-100' : 'opacity-0'}
                 `}>
                     Access Denied.
