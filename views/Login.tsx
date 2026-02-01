@@ -31,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ theme, onLogin }) => {
         <div className="flex w-full h-screen justify-center items-center p-4">
             <div 
                 className={`
-                    w-52 h-52 sm:w-56 sm:h-56
+                    w-52 sm:w-56 aspect-square
                     flex flex-col justify-center items-start p-5
                     border backdrop-blur-md shadow-2xl transition-all duration-500
                     ${isDark 
